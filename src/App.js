@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+const pics = {
+  panda: "http://bit.ly/1Tqltv5",
+  owl: "http://bit.ly/1XGtkM3",
+  owlCat: "http://bit.ly/1Upbczi",
+};
+
+const panda = <img src={pics.panda} alt="Lazy Panda" />;
+
+const owl = <img src={pics.owl} alt="Unimpressed Owl" />;
+
+const owlCat = <img src={pics.owlCat} alt="Ghastly Abomination" />;
+
+function myFunc() {
+  alert("Make myFunc the pFunc... omg that was horrible i am so sorry");
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <h1 id="header">Hellor</h1>
+      {panda}
+      {owl}
+      {owlCat}
+      <button type="button" onClick={myFunc}>
+        Click Me!
+      </button>
     </div>
   );
 }
