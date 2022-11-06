@@ -24,5 +24,4 @@ yarn-error.log*
 
 # my files
 
-
-/src/notes.js
+notes.js
