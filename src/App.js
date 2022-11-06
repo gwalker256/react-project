@@ -57,6 +57,17 @@ const ternaryOptions = {
 
 const goodOrBad = <p>This is a ternary! {ternaryOptions[coinToss() === 'heads' ? 'good' : 'bad']} </p>;
 
+const judgmental = Math.random() < 0.5;
+
+const favoriteFoods = (
+  <div>
+<p>My favourite food will show below if the && is truthy</p>
+      { !judgmental && <li>it is coins!</li> }
+      
+
+  </div>
+);
+
 
 function App() {
   return (
@@ -82,6 +93,7 @@ function App() {
       </button> */}
       {headsOrTails}
       {goodOrBad}
+      {favoriteFoods}
     </div>
   );
 }
