@@ -1,8 +1,16 @@
 #header{
   font-family: 'Times New Roman', Times, serif;
-  color: blue;
+  color:magenta;
 }
 /* h1{
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: red;
 } */
+img{
+  max-width: 15%;
+}
+
+.main{
+  /* margin: auto; */
+  /* text-align: center */
+}
