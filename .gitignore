@@ -23,4 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # my files
-\src\notes.js
+
+
+/src/notes.js
