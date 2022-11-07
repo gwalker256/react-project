@@ -1,6 +1,5 @@
 import "./App.css";
 
-
 const pics = {
   panda: "http://bit.ly/1Tqltv5",
   owl: "http://bit.ly/1XGtkM3",
@@ -8,37 +7,45 @@ const pics = {
 };
 
 function makeDoggy(e) {
-  if (e.target.getAttribute('src') === 'https://content.codecademy.com/courses/React/react_photo-kitty.jpg'){
-  e.target.setAttribute('src', 'https://content.codecademy.com/courses/React/react_photo-puppy.jpeg');
-  e.target.setAttribute('alt', 'doggy');}
-  else{
-    e.target.setAttribute('src', 'https://content.codecademy.com/courses/React/react_photo-kitty.jpg');
-    e.target.setAttribute('alt', 'kitty');
-  }
-}
-
-function coinToss() {   
-  const flip = Math.random() < 0.5 ? 'heads' : 'tails';
-  // alert(flip)
-  return flip
-}
-
-let headsOrTails
-
-if (coinToss() === 'heads') {
-  headsOrTails = <h2>Heads!</h2>
+  if (
+    e.target.getAttribute("src") ===
+    "https://content.codecademy.com/courses/React/react_photo-kitty.jpg"
+  ) {
+    e.target.setAttribute(
+      "src",
+      "https://content.codecademy.com/courses/React/react_photo-puppy.jpeg"
+    );
+    e.target.setAttribute("alt", "doggy");
   } else {
-    headsOrTails = <h2>Tails!</h2>
-    
+    e.target.setAttribute(
+      "src",
+      "https://content.codecademy.com/courses/React/react_photo-kitty.jpg"
+    );
+    e.target.setAttribute("alt", "kitty");
   }
+}
 
-  
+function coinToss() {
+  const flip = Math.random() < 0.5 ? "heads" : "tails";
+  // alert(flip)
+  return flip;
+}
+
+let headsOrTails;
+
+if (coinToss() === "heads") {
+  headsOrTails = <h2>Heads!</h2>;
+} else {
+  headsOrTails = <h2>Tails!</h2>;
+}
 
 const kittyOrDoggy = (
-	<img onClick={makeDoggy}
-		src="https://content.codecademy.com/courses/React/react_photo-kitty.jpg" 
-		alt="kitty" />
-)
+  <img
+    onClick={makeDoggy}
+    src="https://content.codecademy.com/courses/React/react_photo-kitty.jpg"
+    alt="kitty"
+  />
+);
 
 const panda = <img src={pics.panda} alt="Lazy Panda" />;
 
@@ -52,21 +59,32 @@ function myAlert() {
 
 const ternaryOptions = {
   good: "That's good!",
-  bad: "That's bad!"
+  bad: "That's bad!",
 };
 
-const goodOrBad = <p>This is a ternary! {ternaryOptions[coinToss() === 'heads' ? 'good' : 'bad']} </p>;
+const goodOrBad = (
+  <p>
+    This is a ternary! {ternaryOptions[coinToss() === "heads" ? "good" : "bad"]}{" "}
+  </p>
+);
 
 const judgmental = Math.random() < 0.5;
 
 const favoriteFoods = (
   <div>
-<p>My favourite food will show below if the && is truthy</p>
-      { !judgmental && <li>it is coins!</li> }
-      
-
+    <p>My favourite food will show below if the && is truthy</p>
+    {!judgmental && <li>it is coins!</li>}
   </div>
 );
+
+const people = ["Rowe", "Prevost", "Gare"];
+
+const peopleLis = people.map((person) => <li>{person}</li>);
+
+const people2 = ['Rowe2', 'Prevost2', 'Gare2'];
+
+const peopleLis2 = people2.map((person, i) => <li key={'person_' + i}>{person}</li>);
+
 
 
 function App() {
@@ -94,6 +112,10 @@ function App() {
       {headsOrTails}
       {goodOrBad}
       {favoriteFoods}
+      <h2>Below is made using .map</h2>
+      <ul>{peopleLis}</ul>
+      <h2>Below is made using .map but with keys</h2>
+      <ul>{peopleLis2}</ul>
     </div>
   );
 }
