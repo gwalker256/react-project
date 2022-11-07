@@ -1,5 +1,22 @@
 import "./App.css";
 
+import React from 'react';
+// import ReactDOM from 'react-dom';
+
+class MyComponentClass extends React.Component {
+  render() {
+    return <h1>I am created via component class</h1>;
+  }
+}
+
+
+const greatestDivEver = React.createElement(
+  "div",
+null,
+"i am div made using React.createElement manually"
+);
+
+
 const pics = {
   panda: "http://bit.ly/1Tqltv5",
   owl: "http://bit.ly/1XGtkM3",
@@ -86,7 +103,6 @@ const people2 = ['Rowe2', 'Prevost2', 'Gare2'];
 const peopleLis2 = people2.map((person, i) => <li key={'person_' + i}>{person}</li>);
 
 
-
 function App() {
   return (
     <div className="main">
@@ -115,9 +131,18 @@ function App() {
       <h2>Below is made using .map</h2>
       <ul>{peopleLis}</ul>
       <h2>Below is made using .map but with keys</h2>
+      <p>Keys help stop lists being in wrong order... sometimes you need them</p>
       <ul>{peopleLis2}</ul>
+      <MyComponentClass />
+      {greatestDivEver}
+      
     </div>
   );
 }
 
+
+
 export default App;
+
+
+
