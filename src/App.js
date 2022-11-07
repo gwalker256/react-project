@@ -1,6 +1,6 @@
 import "./App.css";
 
-import React from 'react';
+import React from "react";
 // import ReactDOM from 'react-dom';
 
 class MyComponentClass extends React.Component {
@@ -9,13 +9,11 @@ class MyComponentClass extends React.Component {
   }
 }
 
-
 const greatestDivEver = React.createElement(
   "div",
-null,
-"i am div made using React.createElement manually"
+  null,
+  "i am div made using React.createElement manually"
 );
-
 
 const pics = {
   panda: "http://bit.ly/1Tqltv5",
@@ -98,9 +96,65 @@ const people = ["Rowe", "Prevost", "Gare"];
 
 const peopleLis = people.map((person) => <li>{person}</li>);
 
-const people2 = ['Rowe2', 'Prevost2', 'Gare2'];
+const people2 = ["Rowe2", "Prevost2", "Gare2"];
 
-const peopleLis2 = people2.map((person, i) => <li key={'person_' + i}>{person}</li>);
+const peopleLis2 = people2.map((person, i) => (
+  <li key={"person_" + i}>{person}</li>
+));
+
+const redPanda = {
+  src: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Endangered_Red_Panda.jpg",
+  alt: "Red Panda",
+  width: "200px",
+};
+
+class RedPanda extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Cute Red Panda with attributes from object</h1>
+        <img src={redPanda.src} alt={redPanda.alt} width={redPanda.width} />
+      </div>
+    );
+  }
+}
+
+const fiftyFifty = Math.random() < 0.5;
+
+class TonightsPlan extends React.Component {
+  render() {
+    let plan;
+    if (!fiftyFifty) {
+      plan = <h1>Tonight I'm going out WOOO</h1>;
+    } else {
+      plan = <h1>Tonight I'm going to bed WOOO</h1>;
+    }
+
+    return plan;
+  }
+}
+
+class MyName extends React.Component {
+  // this is a getter method
+  get name() {
+    return "a string returned via a getter method and 'this'";
+  }
+
+  render() {
+    return <h1>My name is... {this.name}.</h1>;
+  }
+}
+
+class Button extends React.Component {
+  scream() {
+    alert('AAAAAAAAHHH!!!!!');
+  }
+
+  render() {
+    return <button onClick={this.scream}>I am an event listener in a class component</button>;
+  }
+}
+
 
 
 function App() {
@@ -110,7 +164,7 @@ function App() {
       <h2>Click to change kitty to doggy</h2>
       {kittyOrDoggy}
       <br />
-      <h2>I don't work so display alt text</h2>
+      <h2>src is broken so I display alt text</h2>
       {panda}
       <br />
       <h2>We are just pictures</h2>
@@ -131,18 +185,19 @@ function App() {
       <h2>Below is made using .map</h2>
       <ul>{peopleLis}</ul>
       <h2>Below is made using .map but with keys</h2>
-      <p>Keys help stop lists being in wrong order... sometimes you need them</p>
+      <p>
+        Keys help stop lists being in wrong order... sometimes you need them
+      </p>
       <ul>{peopleLis2}</ul>
       <MyComponentClass />
       {greatestDivEver}
-      
+      <RedPanda />
+      <h1>50/50 am I going out</h1>
+      <TonightsPlan />
+      <MyName />
+      <Button />
     </div>
   );
 }
 
-
-
 export default App;
-
-
-
